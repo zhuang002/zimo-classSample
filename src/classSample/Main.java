@@ -8,20 +8,44 @@ public class Main {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		int maxPopulation = Integer.MIN_VALUE;
-		String maxCity = null;
+		
+		Human[] persons = new Human[n];
+		
 		for (int i=0;i<n;i++) {
-			String city = sc.next();
-			int population  = sc.nextInt();
+			Human person = new Human();
+			person.name = sc.next();
+			person.gender =sc.next();
+			person.birthyear = sc.nextInt();
+			person.birthmonth = sc.nextInt();
+			person.birthday = sc.nextInt();
+			person.nationality = sc.next();
 			
-			if (population > maxPopulation) {
-				maxPopulation = population;
-				maxCity = city;
-			}
+			persons[i] = person;
 		}
 		
-		System.out.println(maxCity);
+		
+		for (Human person:persons) {
+			System.out.println(person.getFullInfo());
+		}
 
 	}
 
+}
+
+class Human {
+	String name;
+	String gender;
+	int birthyear;
+	int birthmonth;
+	int birthday;
+	String nationality;
+	
+	
+	public String getFullInfo() {
+		// TODO Auto-generated method stub
+		return this.name+" "+this.gender+" " + this.birthyear +" "+this.birthmonth+" "+this.birthday
+				+" "+this.nationality;
+	}
+	
+	
 }
