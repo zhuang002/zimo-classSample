@@ -15,9 +15,13 @@ public class Main {
 			Human person = new Human();
 			person.name = sc.next();
 			person.gender =sc.next();
-			person.birthyear = sc.nextInt();
-			person.birthmonth = sc.nextInt();
-			person.birthday = sc.nextInt();
+			
+			Date date = new Date();
+			date.year = sc.nextInt();
+			date.month = sc.nextInt();
+			date.day = sc.nextInt();
+			person.birthDate = date;
+			
 			person.nationality = sc.next();
 			
 			persons[i] = person;
@@ -35,17 +39,26 @@ public class Main {
 class Human {
 	String name;
 	String gender;
-	int birthyear;
-	int birthmonth;
-	int birthday;
+	Date birthDate;
 	String nationality;
 	
 	
 	public String getFullInfo() {
 		// TODO Auto-generated method stub
-		return this.name+" "+this.gender+" " + this.birthyear +" "+this.birthmonth+" "+this.birthday
+		return this.name+" "+this.gender+" " + this.birthDate.getInfo()
 				+" "+this.nationality;
 	}
 	
 	
+}
+
+class Date {
+	int year;
+	int month;
+	int day;
+	
+	public String getInfo() {
+		// TODO Auto-generated method stub
+		return this.year+" "+this.month+" " +this.day;
+	}
 }
