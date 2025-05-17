@@ -31,8 +31,9 @@ public class Main {
 			}
 		}
 		
-		System.out.println(maxCity.name + " " + maxCity.population+" "+maxCity.brev+" "+maxCity.gdp);
-		//System.out.println(maxCity);
+		//System.out.println(maxCity.name + " " + maxCity.population+" "+maxCity.brev+" "+maxCity.gdp);
+		String information = maxCity.info();
+		System.out.println(information);
 	}
 
 }
@@ -43,4 +44,9 @@ class City {
 	int population;
 	String brev;
 	int gdp;
+	
+	public String info() {
+		// TODO Auto-generated method stub
+		return this.name+" "+this.population+" "+this.brev+" "+this.gdp;
+	}
 }
