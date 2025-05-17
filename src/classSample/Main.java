@@ -9,19 +9,38 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int maxPopulation = Integer.MIN_VALUE;
-		String maxCity = null;
+		City maxCity = null;
+		City[] cities = new City[n];
+		
 		for (int i=0;i<n;i++) {
-			String city = sc.next();
-			int population  = sc.nextInt();
+			City city = new City();
 			
-			if (population > maxPopulation) {
-				maxPopulation = population;
-				maxCity = city;
+			city.name = sc.next();
+			city.population = sc.nextInt();
+			city.brev = sc.next();
+			city.gdp = sc.nextInt();
+			
+			
+			cities[i] = city;
+		}
+		
+		for (int i=0;i<cities.length;i++) {
+			if (cities[i].population > maxPopulation) {
+				maxPopulation = cities[i].population;
+				maxCity = cities[i];
 			}
 		}
 		
-		System.out.println(maxCity);
-
+		System.out.println(maxCity.name + " " + maxCity.population+" "+maxCity.brev+" "+maxCity.gdp);
+		//System.out.println(maxCity);
 	}
 
+}
+
+
+class City {
+	String name;
+	int population;
+	String brev;
+	int gdp;
 }
