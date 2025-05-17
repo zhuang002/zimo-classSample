@@ -9,18 +9,24 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int maxPopulation = Integer.MIN_VALUE;
-		String maxCity = null;
+		int index = -1;
+		
+		String[] cities = new String[n];
+		int[] populations = new int[n];
+		
 		for (int i=0;i<n;i++) {
-			String city = sc.next();
-			int population  = sc.nextInt();
-			
-			if (population > maxPopulation) {
-				maxPopulation = population;
-				maxCity = city;
+			cities[i] = sc.next();
+			populations[i]  = sc.nextInt();
+		}
+		
+		for (int i=0;i<cities.length;i++) {
+			if (populations[i] > maxPopulation) {
+				maxPopulation = populations[i];
+				index = i;
 			}
 		}
 		
-		System.out.println(maxCity);
+		System.out.println(cities[index]);
 
 	}
 
