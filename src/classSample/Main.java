@@ -9,27 +9,28 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		
-		Human[] persons = new Human[n];
+		Student[] students = new Student[n];
 		
 		for (int i=0;i<n;i++) {
-			Human person = new Human();
-			person.name = sc.next();
-			person.gender =sc.next();
+			Student student = new Student();
+			student.name = sc.next();
+			student.gender =sc.next();
 			
 			Date date = new Date();
 			date.year = sc.nextInt();
 			date.month = sc.nextInt();
 			date.day = sc.nextInt();
-			person.birthDate = date;
+			student.birthDate = date;
 			
-			person.nationality = sc.next();
+			student.nationality = sc.next();
+			student.ID = sc.next();
 			
-			persons[i] = person;
+			students[i] = student;
 		}
 		
 		
-		for (Human person:persons) {
-			System.out.println(person.getFullInfo());
+		for (Student student:students) {
+			System.out.println(student.getFullInfo());
 		}
 
 	}
@@ -60,5 +61,14 @@ class Date {
 	public String getInfo() {
 		// TODO Auto-generated method stub
 		return this.year+" "+this.month+" " +this.day;
+	}
+}
+
+class Student extends Human {
+	String ID;
+	
+	public String getFullInfo() {
+		// TODO Auto-generated method stub
+		return super.getFullInfo()+" "+this.ID;
 	}
 }
